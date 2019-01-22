@@ -1,30 +1,20 @@
 package net.ildar.wurm;
 
-import com.wurmonline.math.Vector3f;
-import com.wurmonline.server.Features;
-import com.wurmonline.server.combat.ServerProjectile;
-import com.wurmonline.server.creatures.Creature;
-import javassist.*;
+import javassist.ClassPool;
+import javassist.CtMethod;
+import javassist.NotFoundException;
 import javassist.bytecode.BadBytecode;
 import javassist.bytecode.Bytecode;
 import javassist.bytecode.CodeAttribute;
 import javassist.bytecode.MethodInfo;
-import javassist.expr.ExprEditor;
-import javassist.expr.MethodCall;
 import org.gotti.wurmunlimited.modloader.classhooks.CodeReplacer;
 import org.gotti.wurmunlimited.modloader.classhooks.HookManager;
-import org.gotti.wurmunlimited.modloader.interfaces.*;
+import org.gotti.wurmunlimited.modloader.interfaces.Configurable;
+import org.gotti.wurmunlimited.modloader.interfaces.PreInitable;
+import org.gotti.wurmunlimited.modloader.interfaces.WurmServerMod;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.HashMap;
 import java.util.Properties;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class FixLibilaTransfer implements WurmServerMod, PreInitable, Configurable {
     private static final String VERSION = "1.0";
